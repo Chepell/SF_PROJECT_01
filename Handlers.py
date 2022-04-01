@@ -4,7 +4,7 @@ import pandas as pd
 
 def get_columns_unique_info_df(df):
     """
-    Функция для получиения количества уникальных значнений и типа данных в каждом из столбцов
+    Функция для получиения количества уникальных значнений, количества пусты значений и типа данных в каждом из столбцов
 
     :param df: Датафрейм для анализа
     :return: Итоговый датафрейм с разультатами анализа
@@ -15,14 +15,15 @@ def get_columns_unique_info_df(df):
     # пробегаемся по именам столбцов в таблице
     for col in df.columns:
         # создаём кортеж (имя столбца, число уникальных значений)
-        item = (col, df[col].nunique(), df[col].dtype)
+        item = (col, df[col].nunique(), df[col].isnull().sum(), df[col].dtype)
         # добавляем кортеж в список
         unique_list.append(item)
-        # создаём вспомогательную таблицу и сортируем её
+        # создаю датафрейм который будет возвращаться
     unique_counts = pd.DataFrame(
         unique_list,
-        columns=['Column Name', 'Num Unique', 'Type']
-    ).sort_values(by='Num Unique', ignore_index=True)
+        columns=['Column Name', 'Num Unique', 'Num Null', 'Type']
+    )
+    #.sort_values(by='Num Unique', ignore_index=True)
 
     return unique_counts
 
