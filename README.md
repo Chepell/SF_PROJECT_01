@@ -1,5 +1,8 @@
 # PROJECT-01. Анализ вакансий из HeadHunter 
 
+[Скачать датасет для проекта (разархивировать и положить в папку data)](https://drive.google.com/file/d/1zmbfhUh2Fmev1GKYbHe_y9qSNoLBV-P4/view?usp=sharing)
+
+
 ## Оглавление  
 [1. Описание проекта](.README.md#Описание-проекта)  
 
